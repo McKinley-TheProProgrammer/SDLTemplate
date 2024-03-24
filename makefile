@@ -3,7 +3,7 @@ RMDIR = rm -rdf
 RM = rm -f
 
 DEP_FLAGS = -M -MT $@ -MT $(BIN_PATH)/$(*F).o -MP -MF $@
-LIBS = -llibSDL2 -llibSDL2_image -llibSDL2_mixer -llibSDL2_ttf -lm
+LIBS = -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf -lm
 
 INC_PATHS = -I$(INC_PATH) $(addprefix -I,$(SDL_INC_PATH))
 

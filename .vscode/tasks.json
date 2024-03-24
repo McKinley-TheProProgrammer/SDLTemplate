@@ -13,11 +13,11 @@
                 "${fileDirname}\\${fileBasenameNoExtension}.exe",
                 "-IC:/SDL2/SDL-2.30.1/include",
                 "-LC:/SDL2/SDL-2.30.1/lib",
-                "-l:libSDL2main",
-                "-l:libSDL2",
-                "-l:libSDL2_image",
-                "-l:libSDL2_mixer",
-                "-l:libSDL2_ttf",
+                "-lSDL2main",
+                "-lSDL2",
+                "-lSDL2_image",
+                "-lSDL2_mixer",
+                "-lSDL2_ttf",
                 "-mwindows"
             ],
             "options": {
