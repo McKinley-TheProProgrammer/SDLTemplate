@@ -3,7 +3,7 @@ RMDIR = rm -rdf
 RM = rm -f
 
 DEP_FLAGS = -M -MT $@ -MT $(BIN_PATH)/$(*F).o -MP -MF $@
-LIBS = -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf -lm
+LIBS = -llibSDL2 -llibSDL2_image -llibSDL2_mixer -llibSDL2_ttf -lm
 
 INC_PATHS = -I$(INC_PATH) $(addprefix -I,$(SDL_INC_PATH))
 
@@ -31,7 +31,9 @@ ifeq ($(OS),Windows_NT)
 RMDIR = rd /s /q
 RM = del /q
 
-SDL_PATHS = C:/SDL2
+SDL2_VERSION = SDL_2.30.1
+
+SDL_PATHS = C:/SDL2/$(SDL2_VERSION)
 
 SDL_INC_PATH += $(addsuffix /include,$(SDL_PATHS))
 LINK_PATH = $(addprefix -L,$(addsuffix /lib,$(SDL_PATHS)))
