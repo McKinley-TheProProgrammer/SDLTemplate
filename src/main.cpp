@@ -1,6 +1,6 @@
 
 #include <iostream>
-#include <SDL2/SDL.h>
+#include <SDL.h>
 
 int main(int argv, char** args)
 {
@@ -14,7 +14,7 @@ int main(int argv, char** args)
 
     SDL_Renderer* renderer = SDL_CreateRenderer(window,-1,0);
 
-    bool isRunning;
+    bool isRunning = true;
     // Event serves for Inputs
     SDL_Event event;
 

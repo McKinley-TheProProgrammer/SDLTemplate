@@ -31,15 +31,19 @@ ifeq ($(OS),Windows_NT)
 RMDIR = rd /s /q
 RM = del /q
 
-SDL2_VERSION = SDL_2.30.1
+SDL2_VERSION = SDL-2.30.1
 
 SDL_PATHS = C:/SDL2/$(SDL2_VERSION)
 
+
 SDL_INC_PATH += $(addsuffix /include,$(SDL_PATHS))
+$(info $$var is[${SDL_INC_PATH}])
 LINK_PATH = $(addprefix -L,$(addsuffix /lib,$(SDL_PATHS)))
 FLAGS += -mwindows
 DFLAGS += -mconsole
 LIBS := -lmingw32 -lSDL2main $(LIBS)
+
+
 
 EXEC := $(EXEC).exe
 
