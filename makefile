@@ -18,6 +18,7 @@ SRC_PATH = src
 BIN_PATH = bin
 DEP_PATH = dep
 
+#FALTA COLOCAR INCLUSÃO DE ARQUIVOS DENTRO DE DIRETORIOS TBM NESSES LUGARES
 CPP_FILES = $(wildcard $(SRC_PATH)/*.cpp)
 INC_FILES = $(wildcard $(SRC_PATH)/*.hpp)
 FILE_NAMES = $(sort $(notdir $(CPP_FILES:.cpp=)) $(notdir $(INC_FILES:.h=)))
