@@ -32,10 +32,10 @@ ifeq ($(OS),Windows_NT)
 RMDIR = rd /s /q
 RM = del /q
 
-SDL2_VERSION = SDL-2.30.1
-
-SDL_PATHS = C:/SDL2/$(SDL2_VERSION)
-
+SDL_PATHS = lib/sdl
+SDL_IMAGE_PATH = lib/sdl_image
+SDL_TTF_PATH = lib/sdl_ttf
+SDL_MIXER_PATH = lib/sdl_mixer
 
 SDL_INC_PATH += $(addsuffix /include,$(SDL_PATHS))
 $(info $$var is[${SDL_INC_PATH}])
