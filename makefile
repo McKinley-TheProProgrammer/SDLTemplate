@@ -37,9 +37,11 @@ SDL_IMAGE_PATH = lib/sdl_image
 SDL_TTF_PATH = lib/sdl_ttf
 SDL_MIXER_PATH = lib/sdl_mixer
 
-SDL_INC_PATH += $(addsuffix /include,$(SDL_PATHS))
+SDL_INC_PATH += $(addsuffix /include,$(SDL_PATHS)) $(addsuffix /include,$(SDL_IMAGE_PATH))  $(addsuffix /include,$(SDL_MIXER_PATH))  $(SDL_TTF_PATH)
+
+
 $(info $$var is[${SDL_INC_PATH}])
-LINK_PATH = $(addprefix -L,$(addsuffix /lib,$(SDL_PATHS)))
+LINK_PATH = $(addprefix -L,$(addsuffix /lib,$(SDL_INC_PATH)))
 FLAGS += -mwindows
 DFLAGS += -mconsole
 LIBS := -lmingw32 -lSDL2main $(LIBS)
