@@ -1,5 +1,8 @@
 {
     "files.associations": {
         "ostream": "cpp"
-    }
+    },
+    "Lua.diagnostics.globals": [
+        "workspace"
+    ]
 }
