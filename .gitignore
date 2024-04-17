@@ -33,3 +33,4 @@
 *.out
 *.app
 JOGO
+.vscode/settings.json
