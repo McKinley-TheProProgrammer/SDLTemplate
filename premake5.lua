@@ -30,7 +30,8 @@ project "SDL_Template"      -- Nome do seu projetopr
     -- Ao incluir um diretório, não é preciso especificar o caminho todo a partir do diretório raiz. 
     -- Assim, é possível escrever '#include "myclass.hpp"' ao invés de '#include "include/myclass.hpp"'.
     -- OBSERVAÇÃO: deve-se atualizar o diretório da pasta include da SDL aqui.
-    includedirs { "%{prj.name}/include", "%{prj.name}/src", "C:/SDL2/SDL-2.30.1/include" }
+    includedirs { "%{prj.name}/include", "%{prj.name}/src", "C:/SDL2/SDL-2.30.1/include", "%{prj.name}/lib/sdl/include", 
+    "%{prj.name}/lib/sdl_image/include", "%{prj.name}/lib/sdl_mixer/include", "%{prj.name}/lib/sdl_ttf/include" }
 
     -- Diretório onde as bibliotecas a serem linkadas se encontram.
     -- OBSERVAÇÃO: deve-se atualizar o diretório da pasta lib da SDL aqui.

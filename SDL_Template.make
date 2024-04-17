@@ -19,7 +19,7 @@ endif
 # #############################################
 
 RESCOMP = windres
-INCLUDES += -ISDL_Template/include -ISDL_Template/src -IC:/SDL2/SDL-2.30.1/include
+INCLUDES += -ISDL_Template/include -ISDL_Template/src -IC:/SDL2/SDL-2.30.1/include -ISDL_Template/lib/sdl/include -ISDL_Template/lib/sdl_image/include -ISDL_Template/lib/sdl_mixer/include -ISDL_Template/lib/sdl_ttf/include
 FORCE_INCLUDE +=
 ALL_CPPFLAGS += $(CPPFLAGS) -MD -MP $(DEFINES) $(INCLUDES)
 ALL_RESFLAGS += $(RESFLAGS) $(DEFINES) $(INCLUDES)

@@ -18,8 +18,11 @@
 /************************************************
 *					SDL.h						*
 *************************************************/
+#define SDL_MAIN_HANDLED
+
 #ifdef INCLUDE_SDL 
 	#ifdef _WIN32
+		#define SDL_MAIN_HANDLED
 		#include <SDL.h>
 	#elif __APPLE__
 		#include "TargetConditionals.h"
