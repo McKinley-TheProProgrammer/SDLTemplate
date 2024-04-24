@@ -23,7 +23,7 @@ INCLUDES += -ISDL_Template/include -ISDL_Template/src -IC:/SDL2/SDL-2.30.1/inclu
 FORCE_INCLUDE +=
 ALL_CPPFLAGS += $(CPPFLAGS) -MD -MP $(DEFINES) $(INCLUDES)
 ALL_RESFLAGS += $(RESFLAGS) $(DEFINES) $(INCLUDES)
-LIBS += -lSDL2 -lSDL2main -lSDL2_image -lSDL2_mixer -lSDL2_ttf
+LIBS += -lmingw32 -lSDL2 -lSDL2main -lSDL2_image -lSDL2_mixer -lSDL2_ttf
 LDDEPS +=
 LINKCMD = $(CXX) -o "$@" $(OBJECTS) $(RESOURCES) $(ALL_LDFLAGS) $(LIBS)
 define PREBUILDCMDS

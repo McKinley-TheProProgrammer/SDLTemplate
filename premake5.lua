@@ -1,3 +1,5 @@
+WindowsSDLPath = "C:/SDL2/SDL-2.30.1"
+
 -- Workspace -----------------------------------------------------------------------------------------------------------
 workspace "SDL_Template"      -- Nome do seu workspace
     architecture "x64"  -- x86_64 para LINUX - x32 para arquiteturas de 32 bits - x64 para arquiteturas de 64 bits	
@@ -10,6 +12,9 @@ workspace "SDL_Template"      -- Nome do seu workspace
 project "SDL_Template"      -- Nome do seu projetopr
     location "./" -- Pasta com o projeto
     kind "ConsoleApp"    -- Tipo de aplicação
+
+    -- To stop de WINMAIN tyranny
+    entrypoint("mainCRTStartup")
 
     -- Diretório onde os códigos compilados serão gerados.
     -- Nesse caso, o diretório é 'mypremake'.
@@ -30,7 +35,8 @@ project "SDL_Template"      -- Nome do seu projetopr
     -- Ao incluir um diretório, não é preciso especificar o caminho todo a partir do diretório raiz. 
     -- Assim, é possível escrever '#include "myclass.hpp"' ao invés de '#include "include/myclass.hpp"'.
     -- OBSERVAÇÃO: deve-se atualizar o diretório da pasta include da SDL aqui.
-    includedirs { "%{prj.name}/include", "%{prj.name}/src", "C:/SDL2/SDL-2.30.1/include", "%{prj.name}/lib/sdl/include", 
+    includedirs { "%{prj.name}/include", "%{prj.name}/src", 
+    "C:/SDL2/SDL-2.30.1/include", "%{prj.name}/lib/sdl/include", 
     "%{prj.name}/lib/sdl_image/include", "%{prj.name}/lib/sdl_mixer/include", "%{prj.name}/lib/sdl_ttf/include" }
 
     -- Diretório onde as bibliotecas a serem linkadas se encontram.
@@ -41,13 +47,15 @@ project "SDL_Template"      -- Nome do seu projetopr
     -- Aqui são linkados as diversas bibliotecas necessárias.
     links
     {
-        "SDL2",
+        "mingw32",
         "SDL2main",
+        "SDL2",
         "SDL2_image",
         "SDL2_mixer",
         "SDL2_ttf"
     }
 
+    
     -- Filtro para configurações específicas do sistema linux (não é necessário para Windows).
     filter "system:linux"
         pic "On"

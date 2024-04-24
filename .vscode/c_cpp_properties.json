@@ -13,7 +13,7 @@
                 "_UNICODE"
             ],
             "windowsSdkVersion": "10.0.22000.0",
-            "compilerPath": "C:/TDM-GCC-64/bin/g++.exe",
+            "compilerPath": "C:/TDM-GCC-64/bin/gcc.exe",
             "cStandard": "c23",
             "cppStandard": "c++23",
             "intelliSenseMode": "windows-gcc-x64"
