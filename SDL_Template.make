@@ -19,11 +19,11 @@ endif
 # #############################################
 
 RESCOMP = windres
-INCLUDES += -ISDL_Template/include -ISDL_Template/src -IC:/SDL2/SDL-2.30.1/include -ISDL_Template/lib/sdl/include -ISDL_Template/lib/sdl_image/include -ISDL_Template/lib/sdl_mixer/include -ISDL_Template/lib/sdl_ttf/include
+INCLUDES += -ISDL_Template/include -IC:/SDL2/SDL2-2.30.1/include
 FORCE_INCLUDE +=
 ALL_CPPFLAGS += $(CPPFLAGS) -MD -MP $(DEFINES) $(INCLUDES)
 ALL_RESFLAGS += $(RESFLAGS) $(DEFINES) $(INCLUDES)
-LIBS += -lmingw32 -lSDL2 -lSDL2main -lSDL2_image -lSDL2_mixer -lSDL2_ttf
+LIBS += -lSDL2main -lSDL2 -lSDL2_image -lSDL2_mixer -lSDL2_ttf
 LDDEPS +=
 LINKCMD = $(CXX) -o "$@" $(OBJECTS) $(RESOURCES) $(ALL_LDFLAGS) $(LIBS)
 define PREBUILDCMDS
@@ -40,7 +40,7 @@ OBJDIR = bin/build/SDL_Template/debug
 DEFINES += -DDEBUG
 ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -g -Wall -Wextra -O0
 ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -g -std=c++20 -Wall -Wextra -O0
-ALL_LDFLAGS += $(LDFLAGS) -LC:/SDL2/SDL-2.30.1/lib -L/usr/lib64 -m64
+ALL_LDFLAGS += $(LDFLAGS) -LC:/SDL2/SDL2-2.30.1/lib -L/usr/lib64 -m64
 
 else ifeq ($(config),release)
 TARGETDIR = SDL_Template
@@ -49,7 +49,7 @@ OBJDIR = bin/build/SDL_Template/release
 DEFINES +=
 ALL_CFLAGS += $(CFLAGS) $(ALL_CPPFLAGS) -m64 -O2
 ALL_CXXFLAGS += $(CXXFLAGS) $(ALL_CPPFLAGS) -m64 -O2 -std=c++20
-ALL_LDFLAGS += $(LDFLAGS) -LC:/SDL2/SDL-2.30.1/lib -L/usr/lib64 -m64 -s
+ALL_LDFLAGS += $(LDFLAGS) -LC:/SDL2/SDL2-2.30.1/lib -L/usr/lib64 -m64 -s
 
 endif
 

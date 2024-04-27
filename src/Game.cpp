@@ -2,6 +2,8 @@
 
 Game::Game(string windowString, int windowWidth, int windowHeight)
 {
+    SDL_SetMainReady();
+    
     int gameInit = SDL_Init(SDL_INIT_EVERYTHING);
 
     window = SDL_CreateWindow(windowString.c_str(),SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED,

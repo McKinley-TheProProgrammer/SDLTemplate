@@ -1,5 +1,3 @@
-WindowsSDLPath = "C:/SDL2/SDL-2.30.1"
-
 -- Workspace -----------------------------------------------------------------------------------------------------------
 workspace "SDL_Template"      -- Nome do seu workspace
     architecture "x64"  -- x86_64 para LINUX - x32 para arquiteturas de 32 bits - x64 para arquiteturas de 64 bits	
@@ -12,7 +10,7 @@ workspace "SDL_Template"      -- Nome do seu workspace
 project "SDL_Template"      -- Nome do seu projetopr
     location "./" -- Pasta com o projeto
     kind "ConsoleApp"    -- Tipo de aplicação
-
+    staticruntime "off"
     -- To stop de WINMAIN tyranny
     entrypoint("mainCRTStartup")
 
@@ -35,31 +33,39 @@ project "SDL_Template"      -- Nome do seu projetopr
     -- Ao incluir um diretório, não é preciso especificar o caminho todo a partir do diretório raiz. 
     -- Assim, é possível escrever '#include "myclass.hpp"' ao invés de '#include "include/myclass.hpp"'.
     -- OBSERVAÇÃO: deve-se atualizar o diretório da pasta include da SDL aqui.
-    includedirs { "%{prj.name}/include", "%{prj.name}/src", 
-    "C:/SDL2/SDL-2.30.1/include", "%{prj.name}/lib/sdl/include", 
-    "%{prj.name}/lib/sdl_image/include", "%{prj.name}/lib/sdl_mixer/include", "%{prj.name}/lib/sdl_ttf/include" }
+    -- VC Version
+    --includedirs { "%{prj.name}/include", "%{prj.name}/src", "C:/SDL2/VC/SDL-2.30.2/include"} 
+   
+    includedirs {"%{prj.name}/include", "C:/SDL2/SDL2-2.30.1/include"}
 
     -- Diretório onde as bibliotecas a serem linkadas se encontram.
     -- OBSERVAÇÃO: deve-se atualizar o diretório da pasta lib da SDL aqui.
     -- Costuma não ser necessário no Linux. Remova se causar problemas.
-    libdirs { "C:/SDL2/SDL-2.30.1/lib" }
+    --libdirs {"C:/SDL2/VC/SDL2-2.30.2/lib/x64", "C:/SDL2/VC/SDL2-2.30.2/lib/x64/optional" }
 
-    -- Aqui são linkados as diversas bibliotecas necessárias.
-    links
-    {
-        "mingw32",
-        "SDL2main",
-        "SDL2",
-        "SDL2_image",
-        "SDL2_mixer",
-        "SDL2_ttf"
-    }
+     -- Aqui são linkados as diversas bibliotecas necessárias.
+     links
+     {
+         "SDL2main",
+         "SDL2",
+         "SDL2_image",
+         "SDL2_mixer",
+         "SDL2_ttf",
+     }
 
+     
+    libdirs {"C:/SDL2/SDL2-2.30.1/lib","C:\\SDL2\\SDL2-2.30.1\\lib"}
+   
     
     -- Filtro para configurações específicas do sistema linux (não é necessário para Windows).
     filter "system:linux"
         pic "On"
 
+    filter "system:windows"
+        systemversion "latest"
+        libdirs {"C:\\SDL2\\SDL2-2.30.1\\lib"}
+
+    print("C:\\SDL2\\SDL2-2.30.1\\lib")
     -- Filtro para configurações no modo debug.
     filter "configurations:debug"
         buildoptions { "-Wall", "-Wextra", "-O0" }
